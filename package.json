@@ -1,0 +1,32 @@
+{
+  "name": "sorteador",
+  "version": "3.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "Micael",
+  "license": "ISC",
+  "description": "",
+  "build": {
+    "appId": "com.seuapp.id",
+    "productName": "SeuApp",
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "devDependencies": {
+    "electron": "^36.2.0",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2"
+  }
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sorteio Relâmpago</title>
+    <!-- Importa o arquivo CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ASIDE ESQUERDO: Configurações de ocultação e variáveis -->
+    <aside class="aside-config" id="asideesquerdo">
+      <button class="btn-aside" id="btnConfig">Configurações</button>
+      <div id="configContent" style="display: none">
+        <!-- Ocultar campos -->
+        <button id="defaultconfig">Resetar Configurações</button>
+        <button class="btn-aside" id="btnOcultar">
+          Ocultar/Desocultar campos
+        </button>
+        <div class="box" id="boxOcultar">
+          <h3>Ocultar Campos</h3>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" id="hide1" />
+              Campo 1
+            </label>
+            <label>
+              <input type="checkbox" id="hide2" />
+              Campo 2
+            </label>
+            <label>
+              <input type="checkbox" id="hide3" />
+              Campo 3
+            </label>
+            <label>
+              <input type="checkbox" id="hide4" />
+              Campo 4
+            </label>
+            <label>
+              <input type="checkbox" id="hide5" />
+              Campo 5
+            </label>
+          </div>
+          <button class="btn-confirm" id="applyHide">Aplicar</button>
+        </div>
+
+        <!-- Modificar variáveis dos campos -->
+        <button class="btn-aside" id="btnVariaveis">
+          Modificar variáveis dos campos
+        </button>
+        <div class="box" id="boxVariaveis">
+          <h3>Modificar Variáveis dos Campos</h3>
+          <div class="inputs-variaveis">
+            <div class="linha-variavel">
+              <span>Campo 1:</span>
+              <input type="number" id="min1" placeholder="0" /> -
+              <input type="number" id="max1" placeholder="9" />
+            </div>
+            <div class="linha-variavel">
+              <span>Campo 2:</span>
+              <input type="number" id="min2" placeholder="0" /> -
+              <input type="number" id="max2" placeholder="9" />
+            </div>
+            <div class="linha-variavel">
+              <span>Campo 3:</span>
+              <input type="number" id="min3" placeholder="0" /> -
+              <input type="number" id="max3" placeholder="9" />
+            </div>
+            <div class="linha-variavel">
+              <span>Campo 4:</span>
+              <input type="number" id="min4" placeholder="0" /> -
+              <input type="number" id="max4" placeholder="99" />
+            </div>
+            <div class="linha-variavel">
+              <span>Campo 5:</span>
+              <input type="number" id="min5" placeholder="0" /> -
+              <input type="number" id="max5" placeholder="999" />
+            </div>
+          </div>
+          <button class="btn-confirm" id="updateConfig">Confirmar</button>
+        </div>
+      </div>
+      <button class="btn-aside" id="toggleUserInput">
+        Mostrar/Ocultar "Adicionar Número"
+      </button>
+      <button class="btn-aside" id="btnShowResults">Mostrar Resultados</button>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container-principal" id="container-principal">
+      <h1>Sorteio Relâmpago</h1>
+      <button id="sortBtn" class="btn-sortear">Sortear Números</button>
+      <div class="campos">
+        <div class="campo-container">
+          <span>Campo 1</span>
+          <div class="campo" id="campo1">-</div>
+        </div>
+        <div class="campo-container">
+          <span>Campo 2</span>
+          <div class="campo" id="campo2">-</div>
+        </div>
+        <div class="campo-container">
+          <span>Campo 3</span>
+          <div class="campo" id="campo3">-</div>
+        </div>
+        <div class="campo-container">
+          <span>Campo 4</span>
+          <div class="campo" id="campo4">-</div>
+        </div>
+        <div class="campo-container">
+          <span>Campo 5</span>
+          <div class="campo" id="campo5">-</div>
+        </div>
+      </div>
+
+      <!-- Tabela de resultados: 3 colunas (S, I e Data/Hora) -->
+      <div class="resultado-container">
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th>Resultados</th>
+              <th>Data/Hora</th>
+              <th>S/I</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Botão para limpar os resultados -->
+      <button id="clearResults" class="btn-clear">Limpar Resultados</button>
+
+      <!-- NOVA DIV: Adicionar número manualmente -->
+      <div id="userInputDiv">
+        <h3>Adicionar novo número à tabela de resultados</h3>
+        <label for="userNumber">Inserir novo resultado:</label>
+        <input type="number" id="userNumber" placeholder="Digite o número" />
+        <button id="addUserResult" class="btn-confirm">Adicionar Número</button>
+      </div>
+    </main>
+
+    <!-- ASIDE DIREITO: Paleta de Cores e Configuração de Textos -->
+    <aside class="aside-config aside-right" id="direitoaside">
+      <button class="btn-aside" id="btnPaleta">Configurações de cores</button>
+      <div class="box" id="boxPaleta">
+        <h3>Personalizar Cores</h3>
+        <label>
+          Fundo da Página:
+          <input type="color" id="colorBg" value="#f5f5f5" />
+        </label>
+        <label>
+          Botões:
+          <input type="color" id="colorBtn" value="#007bff" />
+        </label>
+        <label>
+          Texto Botões:
+          <input type="color" id="colorBtnText" value="#ffffff" />
+        </label>
+        <label>
+          Campos Sorteados:
+          <input type="color" id="colorCampo" value="#ffffff" />
+        </label>
+        <label>
+          Todos os textos:
+          <input type="color" id="colorText" value="#333333" />
+        </label>
+        <label>
+          Painel Lateral:
+          <input type="color" id="colorAside" value="#2f2f2f" />
+        </label>
+        <label>
+          Cor Cabeçalho Tabela:
+          <input type="color" id="colorTableHeader" value="#007bff" />
+        </label>
+        <label>
+          Texto Cabeçalho Tabela:
+          <input type="color" id="colorTableHeaderText" value="#000000" />
+        </label>
+        <div class="color-group">
+          <label for="campoTextColor"> Números Sorteados:</label>
+          <input
+            type="color"
+            id="campoTextColor"
+            name="campoTextColor"
+            value="#333333"
+          />
+        </div>
+        <label>
+          Borda tabela resultados:
+          <input type="color" id="resultTableBg" value="#ffffff" />
+        </label>
+        <label>
+          Background Inserir resultado:
+          <input type="color" id="tableInceridosColor" value="#f9f9f9" />
+        </label>
+        <br />
+        <p id="textinho">Tabela <br />de <br />resultados abaixo</p>
+        <label>
+          Título Coluna Fundo:
+          <input type="color" id="colorTituloBg" value="#007bff" />
+        </label>
+        <label>
+          Título Coluna Texto:
+          <input type="color" id="colorTituloText" value="#000000" />
+        </label>
+
+        <!-- New pickers for .celula -->
+        <label>
+          Célula Fundo:
+          <input type="color" id="colorCelulaBg" value="#c7c7c7" />
+        </label>
+        <label>
+          Célula Texto:
+          <input type="color" id="colorCelulaText" value="#000000" />
+        </label>
+
+        <!-- New picker for .tabela-resultados background -->
+        <label>
+          Tabela Resultados Fundo:
+          <input type="color" id="colorTabelaBg" value="#3b3b3b" />
+        </label>
+
+        <button class="btn-confirm" id="applyColors">Aplicar Cores</button>
+      </div>
+
+      <button class="btn-aside" id="btntextos">Configuração de textos</button>
+      <div class="box" id="boxTextos">
+        <h3>Modificar Textos</h3>
+        <label>
+          Título Principal:
+          <input type="text" id="inputTitulo" placeholder="Sorteio Relâmpago" />
+        </label>
+        <label>
+          Campo 1:
+          <input type="text" id="inputCampo1" placeholder="Campo 1" />
+        </label>
+        <label>
+          Campo 2:
+          <input type="text" id="inputCampo2" placeholder="Campo 2" />
+        </label>
+        <label>
+          Campo 3:
+          <input type="text" id="inputCampo3" placeholder="Campo 3" />
+        </label>
+        <label>
+          Campo 4:
+          <input type="text" id="inputCampo4" placeholder="Campo 4" />
+        </label>
+        <label>
+          Campo 5:
+          <input type="text" id="inputCampo5" placeholder="Campo 5" />
+        </label>
+        <button class="btn-confirm" id="applyTextos">Aplicar Textos</button>
+      </div>
+    </aside>
+
+    <!-- resultado do do sorteio  -->
+    <button id="btnBack" class="btn-back" style="display: none">
+      ← Voltar
+    </button>
+    <section id="orgaoprincipal" style="display: none">
+      <div class="tabela-resultados">
+        <div class="coluna">
+          <div class="titulo-coluna">Resultados</div>
+          <div class="celulas">
+            <!-- 4x6 = 24 células -->
+            <div class="celula"></div>
+            <div class="celula"></div>
+            <div class="celula"></div>
+            <div class="celula"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

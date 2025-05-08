@@ -1,0 +1,57 @@
+{
+  "ocultar": {
+    "campo1": false,
+    "campo2": false,
+    "campo3": false,
+    "campo4": false,
+    "campo5": false
+  },
+  "minmax": {
+    "campo1": {
+      "min": 0,
+      "max": 9
+    },
+    "campo2": {
+      "min": 0,
+      "max": 9
+    },
+    "campo3": {
+      "min": 0,
+      "max": 9
+    },
+    "campo4": {
+      "min": 0,
+      "max": 99
+    },
+    "campo5": {
+      "min": 0,
+      "max": 999
+    }
+  },
+  "textos": {
+    "titulo": "",
+    "campo1": "",
+    "campo2": "",
+    "campo3": "",
+    "campo4": "",
+    "campo5": ""
+  },
+  "cores": {
+    "colorBg": "#f5f5f5",
+    "colorBtn": "#007bff",
+    "colorCampo": "#ffffff",
+    "colorText": "#333333",
+    "colorAside": "#2f2f2f",
+    "colorTableHeader": "#007bff",
+    "colorBtnText": "#ffffff",
+    "colorTableHeaderText": "#000000",
+    "campoTextColor": "#333333",
+    "resultTableBg": "#ffffff",
+    "tableInceridosColor": "#f9f9f9",
+    "colorTituloBg": "#007bff",
+    "colorTituloText": "#000000",
+    "colorCelulaBg": "#c7c7c7",
+    "colorCelulaText": "#000000",
+    "colorTabelaBg": "#3b3b3b"
+  }
+}

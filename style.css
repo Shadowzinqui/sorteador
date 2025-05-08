@@ -1,0 +1,373 @@
+:root {
+  --bg-color: #f5f5f5; /* Cor de fundo clara para melhorar o contraste */
+  --btn-color: #9e00009c; /* Azul vibrante para botões */
+  --btn-text-color: #ffffff; /* Texto branco para destacar sobre fundo azul */
+  --campo-color: #ffffff; /* Cor de fundo do campo em branco */
+  --campo-text-color: #333333; /* Texto escuro para melhor contraste */
+  --text-color: #333333; /* Texto escuro para leitura mais fácil */
+  --aside-color: #2f2f2f; /* Cor do aside mais escura para contraste */
+  --table-bg-color: #000000; /* Fundo da tabela branco */
+  --table-header-color: #007bff; /* Cor do cabeçalho da tabela azul vibrante */
+  --table-cell-color: #f0f0f0; /* Cor de fundo das células da tabela (cinza claro) */
+  --result-table-bg: #ffffff; /* Fundo da tabela de resultados branco */
+  --table-inceridos-color: #f9f9f9; /* Cor das células de inseridos (cinza muito claro) */
+  --titulo-bg: #007bff; /* Azul vibrante para o título */
+  --titulo-text: #000000; /* Texto branco no título */
+  --celula-bg: #c7c7c7; /* Cor verde para as células (ajuda a destacar) */
+  --celula-text: #000000; /* Texto branco nas células */
+  --tabela-bg: #3b3b3b; /* Fundo da tabela branco */
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout geral */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Estilo para os botões */
+button {
+  color: var(--btn-text-color);
+}
+
+/* ASIDE ESQUERDO */
+.aside-config {
+  width: 300px;
+  background: var(--aside-color);
+  color: #fff;
+  padding: 20px;
+}
+
+/* Botões do aside */
+#btnConfig,
+.btn-aside {
+  background: var(--btn-color);
+  border: none;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+#btnConfig:hover,
+.btn-aside:hover {
+  background: #5ab0a7;
+}
+
+.box {
+  background: #3f3f3f;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: none;
+}
+.checkbox-group label {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+/* Botão confirmar */
+.btn-confirm {
+  background: var(--btn-color);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-confirm:hover {
+  background: #5ab0a7;
+}
+
+/* Inputs min/max */
+.inputs-variaveis {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.linha-variavel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #ddd;
+}
+.linha-variavel input[type="number"] {
+  width: 50px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.container-principal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.container-principal h1 {
+  margin-bottom: 20px;
+}
+
+/* Botão sortear */
+.btn-sortear {
+  background: var(--btn-color);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.btn-sortear:hover {
+  background: #5ab0a7;
+}
+
+/* Campos sorteados */
+.campos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.campo-container {
+  text-align: center;
+}
+.campo-container span {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.campo {
+  width: 160px;
+  height: 130px;
+  background: var(--campo-color);
+  color: var(--campo-text-color);
+  font-size: 3.5em;
+  font-weight: bold;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+/* Tabela de resultados - ajustada para ficar maior */
+/* Tabela de resultados - ajustada para ficar maior com barra de rolagem */
+.resultado-container {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 400px; /* Altura mínima maior */
+  max-height: 400px; /* Limita a altura a 600px para forçar a rolagem */
+  overflow-y: auto;
+  background: var(--result-table-bg);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+thead th {
+  background-color: var(--table-header-color);
+  color: #4f4f4f;
+  padding: 10px;
+  font-size: 1.1em;
+}
+tbody td {
+  border: 1px solid #ccc !important;
+  text-align: center;
+  padding: 10px;
+  font-size: 2em;
+  word-wrap: break-word;
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* Botão limpar resultados */
+.btn-clear {
+  background: var(--btn-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 15px auto;
+  display: block;
+  transition: background 0.3s;
+}
+.btn-clear:hover {
+  background: #5ab0a7;
+}
+
+/* ASIDE DIREITO */
+.aside-right {
+  background: var(--aside-color);
+  color: #fff;
+  width: 300px;
+  padding: 20px;
+  order: 3;
+}
+.color-group label,
+.color-group input[type="color"],
+.aside-right label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Div de input do usuário */
+#userInputDiv {
+  width: 95%;
+  max-width: 1000px;
+  margin: 15px auto;
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: var(--table-inceridos-color);
+}
+#userInputDiv h3 {
+  margin-bottom: 10px;
+}
+#userInputDiv label {
+  margin-right: 10px;
+}
+#userInputDiv input[type="number"] {
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#userInputDiv button {
+  margin-left: 10px;
+}
+
+/* resultados todos */
+/* Modal Fullscreen */
+#orgaoprincipal {
+  width: 95vw;
+  height: 95vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabela-resultados {
+  background-color: var(--tabela-bg);
+  width: 95%;
+  height: 95%;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 10px;
+  display: grid;
+  gap: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.coluna {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.titulo-coluna {
+  background-color: var(--titulo-bg);
+  color: var(--titulo-text);
+  font-size: 55px;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.celulas {
+  display: grid;
+  grid-template-columns: repeat(4, 290px);
+  gap: 15px 90px; /* 5px vertical (entre linhas), 15px horizontal (entre colunas) */
+  justify-content: center;
+  padding: 5px;
+}
+
+.celula {
+  width: 300px;
+  height: 60px;
+  background-color: var(--celula-bg);
+  color: var(--celula-text);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+#btnBack {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--btn-color);
+  color: var(--btn-text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1;
+}
+#textinho {
+  font-size: 20px;
+}
+#defaultconfig {
+  background: var(--btn-color);
+  border: none;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+#defaultconfig:hover {
+  background: #5ab0a7;
+}
+/* Responsividade */
+@media (max-width: 1200px) {
+  body {
+    flex-direction: column;
+  }
+  .aside-config,
+  .aside-right {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .container-principal {
+    padding: 10px;
+  }
+  .resultado-container {
+    width: 100%;
+  }
+}
